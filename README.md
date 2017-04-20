@@ -3,7 +3,7 @@ Spring Kafka MongoDB Jackson Lombok Validation
 
 ## ToDos
 
-- [ ] Jackson
+- [ ] Jackson
 - [ ] lombok
 - [ ] Kafka
 - [ ] Builder Pattern
