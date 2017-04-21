@@ -6,6 +6,7 @@ import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.Value;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.annotation.Id;
 
 import javax.validation.constraints.NotNull;
@@ -20,7 +21,9 @@ public class ToDo
     private final String id;
 
     @NotNull
+    @NotEmpty
     private final String title;
+
     private final boolean finished;
     private final Date createdAt;
 

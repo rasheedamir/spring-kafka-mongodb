@@ -13,7 +13,7 @@ spring:
     mongodb:
       host: ${MONGODB_HOST}
       port: ${MONGODB_PORT}
-      database: qrmanager
+      database: todo
     rest:
       basePath: /api/v1
 
