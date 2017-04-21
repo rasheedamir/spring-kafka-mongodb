@@ -4,21 +4,33 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import lombok.Value;
+import org.springframework.data.annotation.Id;
+
+import javax.validation.constraints.NotNull;
+import java.util.Date;
 
 @Value /* to generate equals, hashCode, getters & toString ( immutable ) */
 @NoArgsConstructor(force = true, access = AccessLevel.PACKAGE) /* just for dehydration! as default ctor is used to create object & then fields are set using refection! */
-@JsonDeserialize(builder = WorkUnit.Builder.class)
-public class WorkUnit
+@JsonDeserialize(builder = ToDo.Builder.class)
+public class ToDo
 {
+    @Id
     private final String id;
-    private final String definition;
+
+    @NotNull
+    private final String title;
+    private final boolean finished;
+    private final Date createdAt;
 
     @lombok.Builder(builderClassName = "Builder", builderMethodName = "newBuilder", toBuilder = true)
-    private WorkUnit(String id, String definition)
+    private ToDo(String id, @NonNull String title, boolean finished, Date createdAt)
     {
         this.id = id;
-        this.definition = definition;
+        this.title = title;
+        this.finished = finished;
+        this.createdAt = createdAt;
     }
 
     @JsonPOJOBuilder(withPrefix = "")

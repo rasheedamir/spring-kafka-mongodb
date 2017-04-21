@@ -37,3 +37,8 @@ spring:
       enabled: true
       # Force the encoding to the configured charset on HTTP requests and responses.
       force: true
+
+kafka:
+  producer:
+    bootstrap: ${KAFKA_CLUSTER}
+    todoTopic: todos
